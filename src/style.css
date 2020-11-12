@@ -98,3 +98,15 @@ h1 {
 .smallSun {
   width: 100px;
 }
+
+a{
+  color: #ebaa50;
+}
+
+a:hover{
+  color: #6abce6;
+}
+
+.openSource{
+  margin-top: 10px;
+}
