@@ -18,13 +18,8 @@
   <div class="container">
     <header class="title">
       <div class="row">
-        <div class="col-10">
-          <h1>Weather Radar</h1>
-        </div>
 
-        <div class="col-2">
-          <h2 class="fahrenheit "><span id="celsius">C </span>| <span id="fahrenheit">F</span> </h2>
-        </div>
+
       </div>
     </header>
 
@@ -34,21 +29,24 @@
           <div class="col">
             <h2 class="city" id="city">Toronto</h2>
             <div class="dateTime">
-              <h3>15 October 2020</h3>
-              <h3 id="dayTime">10:10pm</h3>
+              <h3 id="dayTime"></h3>
+              <p id="description"></p>
             </div>
           </div>
 
           <div class="col">
-            <img src="./images/rain-cloud.gif" alt="Rain Cloud" class="mainWeather">
+            <img src="" class="mainWeather" id="weatherIcon">
           </div>
 
+          <div class="col text-right">
+            <h3 class=" currentTemp" id="currentTemp"></h3>
 
-          <div class="col">
-            <h3 class="currentTemp" id="currentTemp">
-              16°C
-            </h3>
-            <p> Real Feel 15° C </p>
+            <p> Humidity: <span id="humidity"></span>% </p>
+            <p> Wind Speed: <span id="windSpeed"></span>km/h</p>
+          </div>
+          <div class="col-1 convertor">
+            <p class="fahrenheit "><span id="celsius">C </span>| <span id="fahrenheit">F</span>
+              <p />
           </div>
         </div>
 
