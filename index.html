@@ -23,22 +23,23 @@
       </div>
     </header>
 
-    <section class="main">
+    <div class="main">
       <section class="current">
         <div class="row">
           <div class="col">
             <h2 class="city" id="city">Toronto</h2>
             <div class="dateTime">
-              <h3 id="dayTime"></h3>
-              <p id="description"></p>
+              <h3 id="dayTime">
+                <h3 />
+                <p id="description"></p>
             </div>
           </div>
 
-          <div class="col">
-            <img src="" class="mainWeather" id="weatherIcon">
+          <div class="col-4">
+            <img src="" class=" mainWeather" id="weatherIcon">
           </div>
 
-          <div class="col text-right">
+          <div class="col-3 text-right">
             <h3 class=" currentTemp" id="currentTemp"></h3>
 
             <p> Humidity: <span id="humidity"></span>% </p>
@@ -50,7 +51,7 @@
           </div>
         </div>
 
-        <form id="currentCity">
+        <form id="searchCity" class="mt-5">
           <div class="row">
             <div class="col-7">
               <input type="search" class="form-control ds-input" id="search-input" placeholder="Search..."
@@ -66,72 +67,19 @@
           </div>
         </form>
       </section>
-      <section class="forecast">
-        <!-- <h3>Forecast</h3> -->
+      <!-- Weather Forecast information  -->
+      <div class="forecast row align-items-center" id="forecast">
 
-        <div class="row temp date">
-          <div class="col">
-            <p>Tomorrow</p>
-          </div>
-          <div class="col">
-            <p>17 Oct</p>
-          </div>
-          <div class="col">
-            <p>18 Oct</p>
-          </div>
-          <div class="col">
-            <p>19 Oct</p>
-          </div>
-          <div class="col">
-            <p>20 Oct</p>
-          </div>
-        </div>
-
-        <div class="row temp">
-          <div class="col">
-            <img src="./images/sun-behind-cloud.png" alt="" class=rainCloud>
-          </div>
-          <div class="col">
-            <img src="./images/sun-behind-cloud.png" alt="" class=rainCloud>
-          </div>
-          <div class="col">
-            <img src="./images/cloud-with-rain.png" alt="" class=cloudSun>
-          </div>
-          <div class="col">
-            <img src="./images/small-sun-behind-cloud.png" alt="" class="smallSun">
-          </div>
-          <div class="col">
-            <img src="./images/sun-behind-cloud.png" alt="" class=rainCloud>
-          </div>
-        </div>
-
-        <div class="row temp">
-          <div class="col">
-            <p>11°C</i></p>
-          </div>
-          <div class="col">
-            <p>13°C</i></p>
-          </div>
-          <div class="col">
-            <p>15°C</i></p>
-          </div>
-          <div class="col">
-            <p>10°C</i></p>
-          </div>
-          <div class="col">
-            <p>12°C</i></p>
-          </div>
-        </div>
-      </section>
-    </section>
+      </div>
+    </div>
     <footer>
-      <p class="openSource"><a href="https://github.com/elza-s/weather-app.git" target="_blank">Open source code</a> by
+      <p class="openSource"><a href="https://github.com/elza-s/weather-app.git" target="_blank">Open source code</a>
+        by
         Elza Somu</p>
     </footer>
-  </div>
 
-  <script src="./src/script.js">
-  </script>
+    <script src="./src/script.js">
+    </script>
 </body>
 
 </html>
