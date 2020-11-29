@@ -1,22 +1,35 @@
 // Display current time
-let now = new Date();
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday"
-];
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
 
-let day = days[now.getDay()];
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
 
-let hours = now.getHours();
-let minutes = now.getMinutes();
+  let day = days[now.getDay()];
+  return `${day} ${formatTime(timestamp)}`;
+}
 
-let dayHours = document.querySelector("#dayTime");
-dayHours.innerHTML = ` Last Updated: ${day}  ${hours}:${minutes}`;
+function formatTime(timestamp) {
+  let now = new Date(timestamp);
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes}`
+}
+
+
 
 //Change city on search
 let changeCity = document.querySelector("#searchCity");
@@ -42,6 +55,7 @@ function displayWeatherCondition(response) {
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#windSpeed").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#description").innerHTML = response.data.weather[0].description;
+  document.querySelector("#dayTime").innerHTML = `Last Updated: ${formatDate(response.data.dt * 1000)}`;
 
   let icon = document.querySelector("#weatherIcon")
   icon.setAttribute(
@@ -108,20 +122,17 @@ function displayForecast(response) {
   for (let i = 0; i < 5; i++) {
     forecast = response.data.list[i];
     forecastElement.innerHTML += `
-    <div class="col">
-      <h3>
-    
-      </h3 >
-      <img
-        src="http://openweathermap.org/img/wn/${forecast.weather[0].icon
-      }@2x.png"
-      />
-      <div class="weather-forecast-temperature col">
-        <span><strong>
+    <div class="col forecastTemp"">
+      <p >
+        ${formatTime(forecast.dt * 1000)}
+      </p >
+      <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
+      <p><strong>
         ${Math.round(forecast.main.temp_max)}° |
         </strong>
-        ${Math.round(forecast.main.temp_min)}°</span>
-      </div>
+        ${Math.round(forecast.main.temp_min)}°
+        </p>
+      
     </div > `;
   }
 
