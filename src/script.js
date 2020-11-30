@@ -93,12 +93,16 @@ function changeName(event) {
   event.preventDefault();
   let city = document.querySelector("#search-input").value;
   search(city);
+  city = ''
 }
 
 // Change info with Geolocation
 function searchLocation(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeatherCondition);
+
+  let apiUrlGeoForecast = `https://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrlGeoForecast).then(displayForecast);
 }
 
 function getCurrentLocation(event) {
@@ -117,7 +121,7 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
   let forecast = null;
-  console.log(response)
+  console.log(response);
 
   for (let i = 0; i < 5; i++) {
     forecast = response.data.list[i];
@@ -135,9 +139,6 @@ function displayForecast(response) {
       
     </div > `;
   }
-
-
-
 }
 
-search("Toronto")
+search("Sydney");
